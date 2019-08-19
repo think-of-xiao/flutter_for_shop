@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_for_shop/pages/index_page.dart';
+import 'package:flutter_for_shop/pages/login_register_forget/app_login_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,12 +9,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '百姓生活+',
+      title: '+我的九九+',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
-      home: IndexPage(),
+      home: AppLoginPage(),
     );
   }
 }
