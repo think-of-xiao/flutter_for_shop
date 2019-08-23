@@ -11,7 +11,7 @@ description: A Flutter For shopping application.
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.0.2+1
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -23,7 +23,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  fluttertoast: ^2.2.11
+  fluttertoast: ^3.1.0
   dio: ^2.0.7
   flutter_screenutil: ^0.5.3
   cookie_jar: ^1.0.0
@@ -33,7 +33,16 @@ dependencies:
   simple_rsa: ^0.0.5
   flutter_des: ^1.1.0
 
-  flutter_webview_plugin: ^0.2.1+2
+  flutter_webview_plugin: ^0.3.7
+
+#  transparent_image: ^0.1.0
+
+  package_info: ^0.4.0+2
+
+  flutter_downloader: ^1.1.9
+  path_provider: 1.1.2
+  permission_handler: ^3.1.0
+  progress_dialog: ^1.1.0+1
 
 
 dev_dependencies:
@@ -61,6 +70,7 @@ flutter:
     - assets/main_banner2.png
     - assets/repay_icon.png
     - assets/shoukuan_icon.png
+    - assets/main_notice_icon.png
     - assets/double_ring_loading_io.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see

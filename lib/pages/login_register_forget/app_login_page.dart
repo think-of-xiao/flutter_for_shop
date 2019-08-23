@@ -23,14 +23,22 @@ class AppLoginPage extends StatefulWidget {
 }
 
 class AppLoginState extends State<AppLoginPage> {
+  String simplePhone = '';
   TextEditingController userPhoneController, passwordController;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    userPhoneController = TextEditingController();
-    passwordController = TextEditingController();
+    SharedPreferencesUtil.getStringData(keyStr: 'phone').then((value) {
+      setState(() {
+        simplePhone = value;
+        userPhoneController = TextEditingController(text: simplePhone);
+        userPhoneController.selection = TextSelection.fromPosition(TextPosition(
+            affinity: TextAffinity.downstream, offset: simplePhone.isEmpty ? 0 : simplePhone.length));
+        passwordController = TextEditingController();
+      });
+    });
   }
 
   @override
@@ -76,18 +84,17 @@ class AppLoginState extends State<AppLoginPage> {
                                 decoration: TextDecoration.none),
                           ),
                           CupertinoTextField(
-                            placeholder: '输入您的账号',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              color: CupertinoColors.black,
-                            ),
-                            maxLines: 1,
-                            controller: userPhoneController,
-                            keyboardType: TextInputType.phone,
-                            autofocus: true,
-                            maxLength: 11,
-                            padding: EdgeInsets.all(10.0)
-                          ),
+                              placeholder: '输入您的账号',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                color: CupertinoColors.black,
+                              ),
+                              maxLines: 1,
+                              controller: userPhoneController,
+                              keyboardType: TextInputType.phone,
+                              autofocus: true,
+                              maxLength: 11,
+                              padding: EdgeInsets.all(10.0)),
                           Padding(padding: EdgeInsets.all(15.0)),
                           Text(
                             '密码',
@@ -168,7 +175,6 @@ class AppLoginState extends State<AppLoginPage> {
 
   /// 登录入口函数
   _loginMethod() {
-
     print('------------loginMethod-----------');
 
     String accountPhoneStr = userPhoneController.text.trim();
@@ -179,14 +185,12 @@ class AppLoginState extends State<AppLoginPage> {
     } else if (accountPwsStr.isEmpty || accountPwsStr.length < 6) {
       MyToastUtils.showToastInCenter('密码为空或不正确', 0);
     } else {
-
       _showNetWaitingDialog();
 
       AppHttp.getInstance().post(servicePathAPI['login'], data: {
         'login_phone': accountPhoneStr,
         'client_password': generateMd5(accountPwsStr)
       }).then((values) {
-
         _dismissNetWaitingDialog();
 
         Map loginMap = json.decode(values.toString());
@@ -197,7 +201,7 @@ class AppLoginState extends State<AppLoginPage> {
         SharedPreferencesUtil.saveStringData(
             keyStr: 'userName', valueStr: loginEntity.userName);
         SharedPreferencesUtil.saveStringData(
-            keyStr: 'phone', valueStr: loginEntity.loginPhone);
+            keyStr: 'phone', valueStr: accountPhoneStr);
 
         MyToastUtils.showToastInBottom('登录成功', 0);
         // 启动首页

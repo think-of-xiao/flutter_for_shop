@@ -89,7 +89,7 @@ class AppHttp {
    * post请求
    */
   Future post(url, {data, options, cancelToken}) async {
-    Map<String, String> params = data;
+    Map<String, String> params = (data == null ? Map() : data);
     if(params.containsKey('brand_number')){
       params.addAll({'phone_sys': Config.phoneOs});
     }else{
