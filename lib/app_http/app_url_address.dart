@@ -6,4 +6,5 @@ const servicePathAPI = {
   'homePageUrl': '/login/LayoutPage_mobile.action', // 首页菜单信息(首页banner都是这个)
   'noticeData': '/Operation/Notice_allow.action', // 首页消息公告栏
   'appUpdate': '/Version/getVersionInfo_mobile.action', // 检查app是否需要更新
+  'openRepayment': '/repayment/ifOpen_allow.action', // //判断用户是否开通还款功能
 };

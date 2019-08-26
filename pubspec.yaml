@@ -71,6 +71,10 @@ flutter:
     - assets/repay_icon.png
     - assets/shoukuan_icon.png
     - assets/main_notice_icon.png
+    - assets/repay_updata_bg.png
+    - assets/repay_updata_bg1.png
+    - assets/repay_updata_bg2.png
+    - assets/use_privilege.png
     - assets/double_ring_loading_io.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
