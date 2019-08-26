@@ -124,7 +124,7 @@ class CartPageState extends State<CartPage>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   FadeInImage.memoryNetwork(
-                    placeholder: kTransparentImage.,
+                    placeholder: kTransparentImage,
                     image: Config.baseUrl + data.picUrl,
                     fit: BoxFit.cover,
                     width: double.infinity,
