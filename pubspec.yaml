@@ -35,7 +35,7 @@ dependencies:
 
   flutter_webview_plugin: ^0.3.7
 
-#  transparent_image: ^0.1.0
+  transparent_image: ^0.1.0
 
   package_info: ^0.4.0+2
 
@@ -43,6 +43,8 @@ dependencies:
   path_provider: 1.1.2
   permission_handler: ^3.1.0
   progress_dialog: ^1.1.0+1
+
+  flutter_easyrefresh: ^2.0.3
 
 
 dev_dependencies:
