@@ -49,11 +49,13 @@ class MyWebViewState extends State<MyWebView> {
     flutterWebviewPlugin.onScrollYChanged.listen((double offsetY) {
       // latest offset value in vertical scroll
       // compare vertical scroll changes here with old value
+      print('---url_changed---:\t\n $offsetY');
     });
     //监听web界面左右滑动监听
     flutterWebviewPlugin.onScrollXChanged.listen((double offsetX) {
       // latest offset value in horizontal scroll
       // compare horizontal scroll changes here with old value
+      print('---url_changed---:\t\n $offsetX');
     });
   }
 

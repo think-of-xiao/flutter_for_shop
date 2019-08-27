@@ -6,6 +6,7 @@ import 'package:flutter_for_shop/app_http/app_url_address.dart';
 import 'package:flutter_for_shop/app_http/http.dart';
 import 'package:flutter_for_shop/infos/app_config.dart';
 import 'package:flutter_for_shop/infos/json_bean/shared_link_logo_entity.dart';
+import 'package:flutter_for_shop/pages/main/share_item_pages/share_page.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class CartPage extends StatefulWidget {
@@ -35,7 +36,7 @@ class CartPageState extends State<CartPage>
 
   void getShareData(bool isRefresh) {
     AppHttp.getInstance()
-        .post(servicePathAPI['shareAppLinkLogo'], data: null)
+        .post(servicePathAPI['shareAppLinkLogoList'], data: null)
         .then((values) {
       setState(() {
         requestStr = values;
@@ -99,7 +100,7 @@ class CartPageState extends State<CartPage>
           onLoad: () async {
             Future.delayed(Duration(milliseconds: 1500), () {
               print('----已加载新数据----');
-              _controller.finishLoad(success: true);
+              _controller.finishLoad(success: true, noMore: true);
             });
           },
           slivers: <Widget>[
@@ -137,7 +138,16 @@ class CartPageState extends State<CartPage>
                           fontWeight: FontWeight.bold))
                 ]),
             onTap: () {
-              print('----${data.picDesc}----');
+              // 启动背景透明界面方法,使用PageRouteBuilder构造器设置其属性barrierColor颜色即可
+              Navigator.of(context).push(PageRouteBuilder(
+                  barrierColor: Color.fromARGB(200, 0, 0, 0),
+                  opaque: false,
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return SharePage(imgId: data.id.toString());
+                  }));
+              /*Navigator.of(context).push(MaterialPageRoute(
+                  builder: (buildContext) =>
+                      SharePage(imgId: data.id.toString())));*/
             }))
         .toList();
   }

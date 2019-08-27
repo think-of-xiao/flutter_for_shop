@@ -5,6 +5,7 @@ import 'package:flutter_for_shop/infos/json_bean/main_banner_entity.dart';
 import 'package:flutter_for_shop/infos/json_bean/main_notice_entity.dart';
 import 'package:flutter_for_shop/infos/json_bean/repayment_entity.dart';
 import 'package:flutter_for_shop/infos/json_bean/shared_link_logo_entity.dart';
+import 'package:flutter_for_shop/infos/json_bean/share_playbill_entity.dart';
 
 class EntityFactory {
   static T generateOBJ<T>(json) {
@@ -24,6 +25,8 @@ class EntityFactory {
       return RepaymentEntity.fromJson(json) as T;
     } else if (T.toString() == "SharedLinkLogoEntity") {
       return SharedLinkLogoEntity.fromJson(json) as T;
+    } else if (T.toString() == "SharePlaybillEntity") {
+      return SharePlaybillEntity.fromJson(json) as T;
     } else {
       return null;
     }

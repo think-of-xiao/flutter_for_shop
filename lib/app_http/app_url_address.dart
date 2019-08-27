@@ -7,5 +7,6 @@ const servicePathAPI = {
   'noticeData': '/Operation/Notice_allow.action', // 首页消息公告栏
   'appUpdate': '/Version/getVersionInfo_mobile.action', // 检查app是否需要更新
   'openRepayment': '/repayment/ifOpen_allow.action', //判断用户是否开通还款功能
-  'shareAppLinkLogo': '/Audit/shareIamge_mobile.action', // 分享页面logo列表
+  'shareAppLinkLogoList': '/Audit/shareIamge_mobile.action', // 分享页面logo列表
+  'shareAppLinkLogo': '/bank/findCodeIdentification_mobile.action', // 分享页面logo列表
 };
