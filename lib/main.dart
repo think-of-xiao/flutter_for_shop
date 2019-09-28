@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_for_shop/pages/login_register_forget/app_login_page.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() => runApp(MyApp());
 
